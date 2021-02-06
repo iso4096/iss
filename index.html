@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>ISS Live Stream</title>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@600&display=swap" rel="stylesheet"> 
+        <link rel="stylesheet" href="stylesheet.css">
+        <script src="switch.js"></script>
+    </head>
+    <body>
+        <h1>ISS Viewing</h1>
+        <div class="stream">
+            <p id="interactive" onclick="click_handle()">View of Earth from ISS [Click to switch to stream of ISS]</p>
+            <iframe src="https://ustream.tv/embed/17074538?autoplay=true" style="border: 0 none transparent; " allowfullscreen="" title="Live Stream Feed" width="600" height="360" id="stream">ISS Live Feed</iframe>
+            <p id="tip">If you can't see anything, it's probably night.</p>
+        </div>
+        <div class="map">
+            <p>Location of ISS</p>
+            <iframe src="http://wsn.spaceflight.esa.int/iss/index_portal.php" style="border: 0 none transparent; " scrolling="no" allowfullscreen="" title="ESU ISS tracking map" width="600" height="337" frameborder="0">ESA ISS tracking map</iframe>
+        </div>
+        <footer>
+            Tool by iso4096
+        </footer>
+    </body>
+</html>

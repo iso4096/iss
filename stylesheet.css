@@ -1,0 +1,44 @@
+body {
+    background-color: #121212;
+    color: #343434;
+    font-family: 'IBM Plex Sans', sans-serif;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+h1 {
+    position: absolute;
+    left: 2%;
+}
+
+p {
+    color: #e3e3e3;
+}
+
+#interactive {
+    cursor: pointer;
+}
+
+.map {
+    position: absolute;
+    top: 50%;
+    left: 25%;
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+}
+
+.stream {
+    position: absolute;
+    top: 50%;
+    left: 75%;
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+}
+
+footer {
+    position: absolute;
+    bottom: 2%;
+}
