@@ -6,17 +6,21 @@
         <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@600&display=swap" rel="stylesheet"> 
         <link rel="stylesheet" href="stylesheet.css">
         <script src="switch.js"></script>
+        <meta charset="utf-8">
+        <meta name="title" content="ISS Live Stream">
+        <meta name="description" content="Internation Space Station Live Stream">
     </head>
     <body>
         <h1>International Space Station Live Stream</h1>
         <div class="stream">
             <p id="interactive" onclick="click_handle()">View of Earth from ISS [Click to switch to stream of ISS]</p>
-            <iframe src="https://ustream.tv/embed/17074538?autoplay=true" style="border: 0 none transparent; " allowfullscreen="" title="Live Stream Feed" width="600" height="360" id="stream">ISS Live Feed</iframe>
+            <iframe src="https://ustream.tv/embed/17074538?autoplay=true" style="border: 0 none transparent; " allowfullscreen="" title="Live Stream Feed" width="600" height="337" id="stream">ISS Live Feed</iframe>
             <p id="tip">If you can't see anything, it's probably night.</p>
         </div>
         <div class="map">
-            <p>Location of ISS</p>
+            <p>ISS Map</p>
             <iframe src="https://isstracker.spaceflight.esa.int/" style="border: 0 none transparent; " scrolling="no" title="ESU ISS tracking map" width="600" height="337" frameborder="0">ESA ISS tracking map</iframe>
+            <p id="data">Loading location of ISS...</p>
         </div>
         <footer>
             Tool by iso4096
