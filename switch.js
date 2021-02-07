@@ -40,9 +40,12 @@ docReady(function(){
     var data_output = document.getElementById('data');
 
     setInterval((function(){
-        get("https://api.wheretheiss.at/v1/satellites/25544", (function(data){
-            data = JSON.parse(data);
-            data_output.innerHTML = `Location: ${Math.round(data.latitude * 1000)/1000}°N  ${Math.round(data.longitude * 1000)/1000}°E, Altitude ${Math.round(data.altitude * 1000)/1000} km, Velocity ${Math.round(data.longitude * 1000)/1000} km/h`
+        get("https://api.wheretheiss.at/v1/satellites/25544", (function(location){
+            location = JSON.parse(location);
+            get(`https://nominatim.openstreetmap.org/reverse.php?format=jsonv2&lat=${data.latitude}&lon=${data.longitude}`, function(country){
+                country = JSON.parse(country)
+                data_output.innerHTML = `Location: ${Math.round(location.latitude * 1000)/1000}°N  ${Math.round(location.longitude * 1000)/1000}°E, ${country.display_name}`
+            })
         }));
     }), 1200);
 });
