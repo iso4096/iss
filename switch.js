@@ -14,8 +14,7 @@ function click_handle() {
 
 // https://stackoverflow.com/questions/247483/http-get-request-in-javascript
 
-function get(url, callback)
-{
+function get(url, callback) {
     var xmlHttp = new XMLHttpRequest();
     xmlHttp.onreadystatechange = function() { 
         if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
@@ -38,11 +37,22 @@ function docReady(fn) {
 
 docReady(function(){
     var data_output = document.getElementById('data');
+    var lat, long = NaN, country = '[loading]';
 
-    setInterval((function(){
-        get("https://api.wheretheiss.at/v1/satellites/25544", (function(data){
+    setInterval(function(){
+        get("https://api.wheretheiss.at/v1/satellites/25544", function(data){
             data = JSON.parse(data);
-            data_output.innerHTML = `Location: ${Math.round(data.latitude * 1000)/1000}°N ${Math.round(data.longitude * 1000)/1000}°E`
-        }));
-    }), 1200);
+            lat = data.latitude, long = data.longitude;
+            data_output.innerHTML = `Location: ${Math.round(data.latitude * 1000)/1000}°N ${Math.round(data.longitude * 1000)/1000}°E, Country: ${country}`
+        });
+    }, 1200);
+
+    setInterval(function(){
+        get(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${long}`, function(data){
+            console.log(data);
+            data = JSON.parse(data);
+            country = data.country ? data.country : 'some sea';
+            data_output.innerHTML = `Location: ${Math.round(lat * 1000)/1000}°N ${Math.round(long * 1000)/1000}°E, Country: ${data.country}`
+        });
+    }, 4200);
 });
