@@ -46,13 +46,4 @@ docReady(function(){
             data_output.innerHTML = `Location: ${Math.round(data.latitude * 1000)/1000}°N ${Math.round(data.longitude * 1000)/1000}°E, Country: ${country}`
         });
     }, 1200);
-
-    setInterval(function(){
-        get(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${long}`, function(data){
-            console.log(data);
-            data = JSON.parse(data);
-            country = data.country ? data.country : 'some sea';
-            data_output.innerHTML = `Location: ${Math.round(lat * 1000)/1000}°N ${Math.round(long * 1000)/1000}°E, Country: ${data.country}`
-        });
-    }, 4200);
 });
