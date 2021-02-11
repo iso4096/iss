@@ -37,13 +37,13 @@ function docReady(fn) {
 
 docReady(function(){
     var data_output = document.getElementById('data');
-    var lat, long = NaN, country = '[loading]';
+    var lat, long = NaN;
 
     setInterval(function(){
         get("https://api.wheretheiss.at/v1/satellites/25544", function(data){
             data = JSON.parse(data);
             lat = data.latitude, long = data.longitude;
-            data_output.innerHTML = `Location: ${Math.round(data.latitude * 1000)/1000}°N ${Math.round(data.longitude * 1000)/1000}°E, Country: ${country}`
+            data_output.innerHTML = `Location: ${Math.round(data.latitude * 1000)/1000}°N ${Math.round(data.longitude * 1000)/1000}°E`
         });
     }, 1200);
 });
