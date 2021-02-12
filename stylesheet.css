@@ -20,6 +20,14 @@ p {
     cursor: pointer;
 }
 
+#interactive:hover {
+    text-decoration: underline;
+}
+
+#interactive:not(:hover) {
+    text-decoration: none;
+}
+
 .map {
     position: absolute;
     top: 50%;
