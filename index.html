@@ -5,7 +5,7 @@
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@600&display=swap" rel="stylesheet"> 
         <link rel="stylesheet" href="stylesheet.css">
-        <script src="switch.js"></script>
+        <script src="main.js"></script>
         <meta charset="utf-8">
         <meta name="title" content="ISS Live Stream">
         <meta name="description" content="Internation Space Station Live Stream">
@@ -19,7 +19,7 @@
         </div>
         <div class="map">
             <p>ISS Map</p>
-            <iframe src="https://isstracker.spaceflight.esa.int/" style="border: 0 none transparent; " scrolling="no" title="ESU ISS tracking map" width="600" height="337" frameborder="0">ESA ISS tracking map</iframe>
+            <iframe src="https://isstracker.spaceflight.esa.int/" style="border: 0 none transparent; " scrolling="no" title="ESU ISS tracking map" width="600" height="337" frameborder="0" id="map">ESA ISS tracking map</iframe>
             <p id="data">Loading location of ISS...</p>
         </div>
         <footer>

@@ -36,6 +36,12 @@ function docReady(fn) {
 }    
 
 docReady(function(){
+
+    const width = window.innerWidth || document.documentElement.clientWidth || 
+    document.body.clientWidth;
+    const height = window.innerHeight|| document.documentElement.clientHeight|| 
+    document.body.clientHeight;
+
     var data_output = document.getElementById('data');
     var lat, long = NaN;
 
@@ -46,4 +52,13 @@ docReady(function(){
             data_output.innerHTML = `Location: ${Math.round(data.latitude * 1000)/1000}°N ${Math.round(data.longitude * 1000)/1000}°E`
         });
     }, 1200);
+
+    var sizes = [Math.round(600/1280*width), Math.round(337/640*height)];
+    console.log(sizes)
+
+    var e = document.getElementById('stream');
+    var m = document.getElementById('map');
+
+    e.setAttribute('width', ""+sizes[0]); e.setAttribute('height', ""+sizes[1])
+    m.setAttribute('width', ""+sizes[0]); m.setAttribute('height', ""+sizes[1])
 });
